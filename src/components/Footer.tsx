@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                 <Instagram className="h-6 w-6" />
               </a>
               <a 
-                href="https://wa.me/5511987918168" 
+                href="https://linktr.ee/meu.mini" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-meumini-orange transition-colors"

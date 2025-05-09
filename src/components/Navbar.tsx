@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToSection('como-funciona')} className="text-white hover:text-meumini-orange transition-colors">COMO FUNCIONA</button>
             <button onClick={() => scrollToSection('galeria')} className="text-white hover:text-meumini-orange transition-colors">GALERIA</button>
             <a 
-              href="https://wa.me/5511987918168?text=Eu%20quero%20MeuMini"
+              href="https://linktr.ee/meu.mini"
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-white hover:text-meumini-orange transition-colors"
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToSection('como-funciona')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">COMO FUNCIONA</button>
             <button onClick={() => scrollToSection('galeria')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">GALERIA</button>
             <a 
-              href="https://wa.me/5511987918168?text=Eu%20quero%20MeuMini" 
+              href="https://linktr.ee/meu.mini" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange"
