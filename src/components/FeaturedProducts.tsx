@@ -41,7 +41,7 @@ const FeaturedProducts: React.FC = () => {
           {products.map((product) => (
             <div 
               key={product.id} 
-              className="bg-gray-900 rounded-lg overflow-hidden card-shadow hover:scale-105 transition-transform duration-300"
+              className="bg-gray-900 rounded-lg overflow-hidden card-shadow"
             >
               <div className="relative">
                 <img 

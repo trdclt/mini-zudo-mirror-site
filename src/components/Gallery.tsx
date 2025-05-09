@@ -10,7 +10,8 @@ import {
   CarouselNext 
 } from '@/components/ui/carousel';
 
-const galleryImages = [
+// Original gallery images array
+const originalGalleryImages = [
   "/lovable-uploads/a8d070f5-e2b4-4445-b045-7345b171e3d5.png",
   "/lovable-uploads/7374d7a3-2a34-4bbb-bbb3-1f632064f366.png",
   "/lovable-uploads/f92f01a3-ff72-454b-9d10-7ec136192d7b.png",
@@ -24,6 +25,9 @@ const galleryImages = [
   "/lovable-uploads/8fbad4d6-47f1-45a3-bff8-471fce401e03.png"
 ];
 
+// Reverse the array to change the order
+const galleryImages = [...originalGalleryImages].reverse();
+
 const Gallery: React.FC = () => {
   return (
     <section className="py-16 bg-meumini-dark" id="galeria">
@@ -36,7 +40,8 @@ const Gallery: React.FC = () => {
           </p>
         </div>
         
-        <div className="relative">
+        {/* Added container div with max-width for better control */}
+        <div className="relative max-w-[900px] mx-auto">
           <Carousel className="w-full">
             <CarouselContent className="-ml-4">
               {galleryImages.map((image, index) => (
@@ -48,7 +53,7 @@ const Gallery: React.FC = () => {
                     <img 
                       src={image} 
                       alt={`Cliente com sua miniatura personalizada ${index + 1}`} 
-                      className="w-full aspect-square object-cover transform transition-transform group-hover:scale-105 duration-300"
+                      className="w-full aspect-square object-cover transform transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
                       <div className="p-4">
@@ -61,16 +66,17 @@ const Gallery: React.FC = () => {
               ))}
             </CarouselContent>
             
+            {/* Improved navigation buttons for better visibility */}
             <div className="hidden md:block">
-              <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+              <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
             </div>
             <div className="hidden md:block">
-              <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+              <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
             </div>
 
             <div className="flex justify-center mt-6 md:hidden">
-              <CarouselPrevious className="mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
-              <CarouselNext className="mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+              <CarouselPrevious className="mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
+              <CarouselNext className="mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
             </div>
           </Carousel>
         </div>
