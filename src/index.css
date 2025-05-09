@@ -48,6 +48,7 @@
   * {
     @apply border-border;
     font-family: 'Archivo', sans-serif;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -90,5 +91,17 @@
 
   .neon-glow {
     filter: drop-shadow(0 0 8px rgba(255, 111, 0, 0.6));
+  }
+
+  .instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .instagram-grid img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 100%;
   }
 }

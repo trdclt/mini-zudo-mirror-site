@@ -6,12 +6,12 @@ const features = [
   {
     title: "Artesanal",
     icon: Hammer,
-    description: "Cada miniatura é cuidadosamente produzida à mão com atenção meticulosa aos detalhes."
+    description: "Cada miniatura é produzida por impressão 3D com resina premium, garantindo máxima qualidade e riqueza de detalhes."
   },
   {
     title: "Personalizado",
     icon: Palette,
-    description: "Criamos miniaturas únicas baseadas nas suas fotos e histórias pessoais."
+    description: "Nossa equipe de designers cria a melhor versão do seu MeuMini baseada na sua foto, com fidelidade e capricho."
   },
   {
     title: "Exclusivo",
@@ -43,7 +43,7 @@ const AboutBrand: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold text-center mb-4">{feature.title} {
                 feature.title === "Artesanal" ? "🛠️" :
-                feature.title === "Personalizado" ? "🎨" : "🌟"
+                feature.title === "Personalizado" ? "🖌️" : "🌟"
               }</h3>
               <p className="text-center text-meumini-light-gray">{feature.description}</p>
             </div>

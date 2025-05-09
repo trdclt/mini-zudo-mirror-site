@@ -4,8 +4,15 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="pt-24 pb-12 md:pt-32 md:pb-24 relative overflow-hidden">
+    <section id="home" className="pt-24 pb-12 md:pt-32 md:pb-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
@@ -16,10 +23,17 @@ const Hero: React.FC = () => {
             Cada peça é única como suas memórias.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="button-gradient text-lg px-8 py-6 font-semibold animate-glow">
+            <Button 
+              onClick={() => scrollToSection('criar')}
+              className="button-gradient text-lg px-8 py-6 font-semibold animate-glow"
+            >
               Criar Meu MeuMini <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" className="text-lg px-8 py-6 font-semibold border-2 border-meumini-orange text-meumini-orange hover:bg-meumini-orange hover:text-white">
+            <Button 
+              onClick={() => scrollToSection('galeria')}
+              variant="outline" 
+              className="text-lg px-8 py-6 font-semibold border-2 border-meumini-orange text-meumini-orange hover:bg-meumini-orange hover:text-white"
+            >
               Ver Galeria
             </Button>
           </div>

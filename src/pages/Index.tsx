@@ -6,7 +6,6 @@ import FeaturedProducts from '@/components/FeaturedProducts';
 import AboutBrand from '@/components/AboutBrand';
 import SpecialOffer from '@/components/SpecialOffer';
 import HowItWorks from '@/components/HowItWorks';
-import Catalog from '@/components/Catalog';
 import CreateMini from '@/components/CreateMini';
 import Gallery from '@/components/Gallery';
 import Testimonials from '@/components/Testimonials';
@@ -23,7 +22,6 @@ const Index = () => {
         <AboutBrand />
         <SpecialOffer />
         <HowItWorks />
-        <Catalog />
         <CreateMini />
         <Gallery />
         <Testimonials />

@@ -71,6 +71,16 @@ const Testimonials: React.FC = () => {
             <CarouselNext className="static transform-none mx-4" />
           </div>
         </Carousel>
+        
+        <div className="text-center mt-8">
+          <a 
+            href="https://www.instagram.com/meumini.com.br/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block button-gradient px-6 py-3 rounded-md text-white font-medium mt-4">
+            Ver mais depoimentos no Instagram
+          </a>
+        </div>
       </div>
     </section>
   );

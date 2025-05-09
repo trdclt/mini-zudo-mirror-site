@@ -4,8 +4,15 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 const CTA: React.FC = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="py-20 bg-meumini-dark text-white relative overflow-hidden">
+    <section id="criar" className="py-20 bg-meumini-dark text-white relative overflow-hidden">
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-meumini-orange opacity-20 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-meumini-orange opacity-10 rounded-full blur-3xl"></div>
       
@@ -19,10 +26,19 @@ const CTA: React.FC = () => {
             É fácil, rápido e o resultado vai te surpreender!
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="button-gradient text-lg px-8 py-6 font-semibold animate-glow">
+            <Button 
+              onClick={() => {
+                window.open('https://www.instagram.com/meumini.com.br/', '_blank');
+              }}
+              className="button-gradient text-lg px-8 py-6 font-semibold animate-glow"
+            >
               COMEÇAR AGORA <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" className="text-lg px-8 py-6 font-semibold border-2 border-meumini-orange text-meumini-orange hover:bg-meumini-orange hover:text-white">
+            <Button 
+              onClick={() => scrollToSection('galeria')}
+              variant="outline" 
+              className="text-lg px-8 py-6 font-semibold border-2 border-meumini-orange text-meumini-orange hover:bg-meumini-orange hover:text-white"
+            >
               Ver Galeria
             </Button>
           </div>
