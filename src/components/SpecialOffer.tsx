@@ -71,7 +71,7 @@ const SpecialOffer: React.FC = () => {
             </div>
             
             <a 
-              href="https://checkout.meumini.shop/VCCL1O8SBTNJ"
+              href="https://linktr.ee/meu.mini"
               target="_blank" 
               rel="noopener noreferrer"
             >

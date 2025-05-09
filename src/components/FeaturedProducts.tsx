@@ -51,7 +51,7 @@ const FeaturedProducts: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
                   <a 
-                    href="https://checkout.meumini.shop/VCCL1O8SBTNJ" 
+                    href="https://linktr.ee/meu.mini" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="m-4"
