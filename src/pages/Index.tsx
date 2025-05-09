@@ -12,7 +12,6 @@ import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import Catalog from '@/components/Catalog';
 
 const Index = () => {
   useEffect(() => {
@@ -30,7 +29,6 @@ const Index = () => {
         <SpecialOffer />
         <HowItWorks />
         <CreateMini />
-        <Catalog />
         <Gallery />
         <FAQ />
         <CTA />
