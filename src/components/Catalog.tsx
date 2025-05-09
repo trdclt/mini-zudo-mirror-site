@@ -45,18 +45,30 @@ const Catalog: React.FC = () => {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-4">{type.title}</h3>
                 <p className="text-meumini-light-gray mb-6">{type.description}</p>
-                <Button className={index === 1 ? "button-gradient" : "bg-gray-700 hover:bg-gray-600"}>
-                  Ver {type.title}
-                </Button>
+                <a 
+                  href="https://checkout.meumini.shop/VCCL1O8SBTNJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className={index === 1 ? "button-gradient" : "bg-gray-700 hover:bg-gray-600"}>
+                    Ver {type.title}
+                  </Button>
+                </a>
               </div>
             </div>
           ))}
         </div>
         
         <div className="text-center mt-12">
-          <Button className="button-gradient text-lg px-8 py-6 font-semibold animate-glow">
-            Fazer Meu MeuMini Agora
-          </Button>
+          <a 
+            href="https://checkout.meumini.shop/VCCL1O8SBTNJ"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="button-gradient text-lg px-8 py-6 font-semibold animate-glow">
+              Fazer Meu MeuMini Agora
+            </Button>
+          </a>
         </div>
       </div>
     </section>

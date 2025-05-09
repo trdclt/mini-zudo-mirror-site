@@ -94,7 +94,7 @@ const Gallery: React.FC = () => {
             Veja mais trabalhos e acompanhe as novidades
           </p>
           <a 
-            href="https://linktr.ee/meu.mini"
+            href="https://checkout.meumini.shop/VCCL1O8SBTNJ"
             target="_blank"
             rel="noopener noreferrer"
           >
