@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -50,6 +50,9 @@ const CreateMini: React.FC = () => {
   const [paymentLink, setPaymentLink] = useState('');
   const [totalPrice, setTotalPrice] = useState(0);
   const [discountPercentage, setDiscountPercentage] = useState(0);
+  
+  // Referência para a seção do formulário
+  const formSectionRef = useRef<HTMLDivElement>(null);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
@@ -62,6 +65,16 @@ const CreateMini: React.FC = () => {
   const nextStep = () => {
     if (step === 1 && selectedSize) {
       setStep(2);
+      
+      // Rolar suavemente para a seção do formulário
+      setTimeout(() => {
+        if (formSectionRef.current) {
+          formSectionRef.current.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
     }
   };
 
@@ -151,7 +164,7 @@ const CreateMini: React.FC = () => {
             </div>
           </div>
           
-          <div className="mt-16">
+          <div className="mt-16" ref={formSectionRef}>
             {step === 1 && (
               <div className="step-content">
                 <h3 className="text-xl font-semibold mb-6">Escolha o tamanho ideal para o seu MeuMini</h3>
