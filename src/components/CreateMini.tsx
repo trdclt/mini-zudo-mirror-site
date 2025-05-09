@@ -16,28 +16,28 @@ const sizes = [
 // Checkout URLs mapping based on size and quantity
 const checkoutUrls = {
   '20cm': {
-    1: 'https://checkout.meumini.com/VCCL1O8SBTNJ',
-    2: 'https://checkout.meumini.com/VCCL1O8SBTPG',
-    3: 'https://checkout.meumini.com/VCCL1O8SBTPH',
-    4: 'https://checkout.meumini.com/VCCL1O8SBTPI',
-    5: 'https://checkout.meumini.com/VCCL1O8SBTPJ',
-    6: 'https://checkout.meumini.com/VCCL1O8SBTPK'
+    1: 'https://checkout.meumini.shop/VCCL1O8SBTNJ',
+    2: 'https://checkout.meumini.shop/VCCL1O8SBTPG',
+    3: 'https://checkout.meumini.shop/VCCL1O8SBTPH',
+    4: 'https://checkout.meumini.shop/VCCL1O8SBTPI',
+    5: 'https://checkout.meumini.shop/VCCL1O8SBTPJ',
+    6: 'https://checkout.meumini.shop/VCCL1O8SBTPK'
   },
   '30cm': {
-    1: 'https://checkout.meumini.com/VCCL1O8SBTOW',
-    2: 'https://checkout.meumini.com/VCCL1O8SBTPL',
-    3: 'https://checkout.meumini.com/VCCL1O8SBTPM',
-    4: 'https://checkout.meumini.com/VCCL1O8SBTPN',
-    5: 'https://checkout.meumini.com/VCCL1O8SBTPO',
-    6: 'https://checkout.meumini.com/VCCL1O8SBTPP'
+    1: 'https://checkout.meumini.shop/VCCL1O8SBTOW',
+    2: 'https://checkout.meumini.shop/VCCL1O8SBTPL',
+    3: 'https://checkout.meumini.shop/VCCL1O8SBTPM',
+    4: 'https://checkout.meumini.shop/VCCL1O8SBTPN',
+    5: 'https://checkout.meumini.shop/VCCL1O8SBTPO',
+    6: 'https://checkout.meumini.shop/VCCL1O8SBTPP'
   },
   '50cm': {
-    1: 'https://checkout.meumini.com/VCCL1O8SBTP9',
-    2: 'https://checkout.meumini.com/VCCL1O8SBTPQ',
-    3: 'https://checkout.meumini.com/VCCL1O8SBTPR',
-    4: 'https://checkout.meumini.com/VCCL1O8SBTPS',
-    5: 'https://checkout.meumini.com/VCCL1O8SBTPT',
-    6: 'https://checkout.meumini.com/VCCL1O8SBTPU'
+    1: 'https://checkout.meumini.shop/VCCL1O8SBTP9',
+    2: 'https://checkout.meumini.shop/VCCL1O8SBTPQ',
+    3: 'https://checkout.meumini.shop/VCCL1O8SBTPR',
+    4: 'https://checkout.meumini.shop/VCCL1O8SBTPS',
+    5: 'https://checkout.meumini.shop/VCCL1O8SBTPT',
+    6: 'https://checkout.meumini.shop/VCCL1O8SBTPU'
   }
 };
 
