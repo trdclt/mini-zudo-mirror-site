@@ -4,12 +4,12 @@ import { Button } from '@/components/ui/button';
 import { Instagram } from 'lucide-react';
 
 const galleryImages = [
-  "https://placehold.co/600x600/1e1e1e/ff6f00?text=MeuMini+1",
-  "https://placehold.co/600x600/1e1e1e/ff6f00?text=MeuMini+2",
-  "https://placehold.co/600x600/1e1e1e/ff6f00?text=MeuMini+3",
-  "https://placehold.co/600x600/1e1e1e/ff6f00?text=MeuMini+4",
-  "https://placehold.co/600x600/1e1e1e/ff6f00?text=MeuMini+5",
-  "https://placehold.co/600x600/1e1e1e/ff6f00?text=MeuMini+6",
+  "https://images.unsplash.com/photo-1582562124811-c09040d0a901?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
+  "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
+  "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
+  "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
+  "https://images.unsplash.com/photo-1466721591366-2d5fba72006d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
+  "https://images.unsplash.com/photo-1582562124811-c09040d0a901?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
 ];
 
 const Gallery: React.FC = () => {
@@ -25,26 +25,11 @@ const Gallery: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {galleryImages.slice(0, 3).map((image, index) => (
+          {galleryImages.map((image, index) => (
             <div key={index} className="relative group overflow-hidden rounded-lg">
               <img 
                 src={image} 
                 alt={`Miniatura ${index + 1}`} 
-                className="w-full aspect-square object-cover transform transition-transform group-hover:scale-110 duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                <div className="p-4">
-                  <h3 className="text-white font-medium">MeuMini Personalizado</h3>
-                  <p className="text-sm text-gray-300">Cliente satisfeito</p>
-                </div>
-              </div>
-            </div>
-          ))}
-          {galleryImages.slice(3).map((image, index) => (
-            <div key={index + 3} className="relative group overflow-hidden rounded-lg">
-              <img 
-                src={image} 
-                alt={`Miniatura ${index + 4}`} 
                 className="w-full aspect-square object-cover transform transition-transform group-hover:scale-110 duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">

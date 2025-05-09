@@ -1,11 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Timer } from 'lucide-react';
 
 const SpecialOffer: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
+    hours: 1,
     minutes: 19,
-    seconds: 0
+    seconds: 45
   });
 
   useEffect(() => {
@@ -15,6 +17,8 @@ const SpecialOffer: React.FC = () => {
           return { ...prev, seconds: prev.seconds - 1 };
         } else if (prev.minutes > 0) {
           return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
         }
         return prev;
       });
@@ -42,14 +46,27 @@ const SpecialOffer: React.FC = () => {
               É hora de transformar suas memórias em arte! Aproveite esta oferta especial antes que acabe.
             </p>
             
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="bg-gray-900 px-8 py-6 rounded-lg border border-meumini-orange">
-                <span className="countdown-gradient text-5xl font-bold animate-glow">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                <span className="block text-sm text-meumini-light-gray mt-1">Minutos</span>
-              </div>
-              <div className="bg-gray-900 px-8 py-6 rounded-lg border border-meumini-orange">
-                <span className="countdown-gradient text-5xl font-bold animate-glow">{String(timeLeft.seconds).padStart(2, '0')}</span>
-                <span className="block text-sm text-meumini-light-gray mt-1">Segundos</span>
+            <div className="flex justify-center mb-8">
+              <div className="bg-gray-900 p-4 rounded-xl border border-meumini-orange shadow-lg">
+                <div className="flex items-center justify-center gap-1 md:gap-2">
+                  <Timer className="text-meumini-orange animate-pulse mr-2 hidden sm:block" size={24} />
+                  <div className="bg-gray-800 px-3 py-2 rounded-lg">
+                    <span className="countdown-gradient text-2xl md:text-4xl font-bold">{String(timeLeft.hours).padStart(2, '0')}</span>
+                  </div>
+                  <span className="text-2xl md:text-4xl font-bold text-meumini-orange">:</span>
+                  <div className="bg-gray-800 px-3 py-2 rounded-lg">
+                    <span className="countdown-gradient text-2xl md:text-4xl font-bold">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                  </div>
+                  <span className="text-2xl md:text-4xl font-bold text-meumini-orange">:</span>
+                  <div className="bg-gray-800 px-3 py-2 rounded-lg">
+                    <span className="countdown-gradient text-2xl md:text-4xl font-bold">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                  </div>
+                </div>
+                <div className="flex justify-center mt-2 text-xs text-gray-400">
+                  <span className="px-3">HORAS</span>
+                  <span className="px-3">MIN</span>
+                  <span className="px-3">SEG</span>
+                </div>
               </div>
             </div>
             

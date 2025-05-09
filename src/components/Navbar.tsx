@@ -26,13 +26,13 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToSection('home')} className="text-white hover:text-meumini-orange transition-colors">INÍCIO</button>
             <button onClick={() => scrollToSection('como-funciona')} className="text-white hover:text-meumini-orange transition-colors">COMO FUNCIONA</button>
             <button onClick={() => scrollToSection('galeria')} className="text-white hover:text-meumini-orange transition-colors">GALERIA</button>
+            <button onClick={() => scrollToSection('contato')} className="text-white hover:text-meumini-orange transition-colors">CONTATO</button>
             <button onClick={() => scrollToSection('depoimentos')} className="text-white hover:text-meumini-orange transition-colors">DEPOIMENTOS</button>
-            <button onClick={() => scrollToSection('criar')} className="text-white hover:text-meumini-orange transition-colors">CRIAR MEUMINI</button>
             <Button 
               onClick={() => scrollToSection('criar')} 
               className="button-gradient font-medium animate-glow"
             >
-              Criar Meu MeuMini
+              Criar MeuMini
             </Button>
           </div>
           <div className="md:hidden flex items-center">
@@ -53,14 +53,14 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">INÍCIO</button>
             <button onClick={() => scrollToSection('como-funciona')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">COMO FUNCIONA</button>
             <button onClick={() => scrollToSection('galeria')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">GALERIA</button>
+            <button onClick={() => scrollToSection('contato')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">CONTATO</button>
             <button onClick={() => scrollToSection('depoimentos')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">DEPOIMENTOS</button>
-            <button onClick={() => scrollToSection('criar')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">CRIAR MEUMINI</button>
             <div className="px-3 py-2">
               <Button 
                 onClick={() => scrollToSection('criar')}
                 className="button-gradient font-medium w-full"
               >
-                Criar Meu MeuMini
+                Criar MeuMini
               </Button>
             </div>
           </div>

@@ -1,11 +1,11 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Toggle } from '@/components/ui/toggle';
-import { Upload } from 'lucide-react';
+import { Upload, MinusCircle, PlusCircle } from 'lucide-react';
 
 const sizes = [
   { value: '20cm', label: '20cm', price: 'R$ 149,90' },
@@ -15,9 +15,11 @@ const sizes = [
 
 const CreateMini: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [quantity, setQuantity] = useState(1);
   const [image, setImage] = useState<File | null>(null);
   const [description, setDescription] = useState('');
   const [step, setStep] = useState(1);
+  const [paymentLink, setPaymentLink] = useState('');
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -30,6 +32,25 @@ const CreateMini: React.FC = () => {
       setStep(2);
     }
   };
+
+  const increaseQuantity = () => {
+    setQuantity(prev => Math.min(prev + 1, 10)); // Max 10 units
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity(prev => Math.max(prev - 1, 1)); // Min 1 unit
+  };
+
+  useEffect(() => {
+    // Generate dynamic payment link based on selection
+    if (selectedSize && quantity > 0) {
+      // This would typically connect to your payment processor
+      // For now we'll just create a mock URL with the parameters
+      const baseUrl = 'https://www.instagram.com/meumini.com.br/';
+      const sizeParam = selectedSize.replace('cm', '');
+      setPaymentLink(`${baseUrl}?size=${sizeParam}&qty=${quantity}`);
+    }
+  }, [selectedSize, quantity]);
 
   const isFormValid = selectedSize && image && description.trim().length > 10;
 
@@ -83,6 +104,34 @@ const CreateMini: React.FC = () => {
                     </div>
                   ))}
                 </div>
+
+                {selectedSize && (
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold mb-4">Escolha a quantidade</h3>
+                    <div className="flex items-center justify-center gap-4 py-4">
+                      <Button 
+                        variant="outline" 
+                        size="icon"
+                        onClick={decreaseQuantity}
+                        disabled={quantity <= 1}
+                        className="rounded-full h-10 w-10 flex items-center justify-center border-gray-600"
+                      >
+                        <MinusCircle className="h-5 w-5" />
+                      </Button>
+                      <span className="text-3xl font-bold w-12 text-center">{quantity}</span>
+                      <Button 
+                        variant="outline" 
+                        size="icon"
+                        onClick={increaseQuantity}
+                        disabled={quantity >= 10}
+                        className="rounded-full h-10 w-10 flex items-center justify-center border-gray-600"
+                      >
+                        <PlusCircle className="h-5 w-5" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex justify-end">
                   <Button 
                     onClick={nextStep} 
@@ -97,11 +146,11 @@ const CreateMini: React.FC = () => {
             
             {step === 2 && (
               <div className="step-content">
-                <h3 className="text-xl font-semibold mb-6">Personalize seu MeuMini</h3>
+                <h3 className="text-xl font-semibold mb-6 text-white">Personalize seu MeuMini</h3>
                 
                 <div className="space-y-6">
                   <div>
-                    <Label htmlFor="photo" className="block mb-2">Envie uma foto de referência</Label>
+                    <Label htmlFor="photo" className="block mb-2 text-white">Envie uma foto de referência</Label>
                     <div className="border-2 border-dashed border-gray-700 rounded-lg p-6 text-center">
                       {image ? (
                         <div className="flex flex-col items-center">
@@ -113,7 +162,7 @@ const CreateMini: React.FC = () => {
                           <p className="text-sm text-meumini-light-gray">{image.name}</p>
                           <Button 
                             variant="outline" 
-                            className="mt-2" 
+                            className="mt-2 text-white" 
                             onClick={() => setImage(null)}
                           >
                             Trocar imagem
@@ -129,11 +178,11 @@ const CreateMini: React.FC = () => {
                             id="photo"
                             type="file"
                             onChange={handleImageChange}
-                            accept="image/*"
+                            accept="image/jpeg, image/png"
                             className="hidden"
                           />
                           <Label htmlFor="photo" className="cursor-pointer">
-                            <Button variant="outline">Escolher arquivo</Button>
+                            <Button variant="outline" className="text-white">Escolher arquivo</Button>
                           </Label>
                         </div>
                       )}
@@ -141,7 +190,7 @@ const CreateMini: React.FC = () => {
                   </div>
                   
                   <div>
-                    <Label htmlFor="description" className="block mb-2">Descrição personalizada</Label>
+                    <Label htmlFor="description" className="block mb-2 text-white">Descrição personalizada</Label>
                     <Textarea
                       id="description"
                       placeholder="Descreva como você gostaria que sua miniatura fosse. Inclua detalhes importantes como cores, posição, elementos adicionais, etc."
@@ -159,6 +208,7 @@ const CreateMini: React.FC = () => {
                   <Button 
                     onClick={() => setStep(1)} 
                     variant="outline"
+                    className="text-white border-gray-600 hover:bg-gray-700"
                   >
                     Voltar
                   </Button>
@@ -181,6 +231,7 @@ const CreateMini: React.FC = () => {
                   <h4 className="font-semibold mb-4">Resumo do pedido</h4>
                   <div className="space-y-2 text-meumini-light-gray">
                     <p><span className="font-medium text-white">Tamanho:</span> {selectedSize}</p>
+                    <p><span className="font-medium text-white">Quantidade:</span> {quantity} {quantity > 1 ? 'unidades' : 'unidade'}</p>
                     <p><span className="font-medium text-white">Imagem:</span> {image?.name}</p>
                     <p><span className="font-medium text-white">Descrição:</span> {description}</p>
                   </div>
@@ -189,7 +240,11 @@ const CreateMini: React.FC = () => {
                     <div className="flex justify-between items-center">
                       <span className="text-lg">Preço</span>
                       <span className="text-xl font-bold text-meumini-orange">
-                        {selectedSize === '20cm' ? 'R$ 149,90' : selectedSize === '30cm' ? 'R$ 199,90' : 'R$ 299,90'}
+                        {selectedSize === '20cm' 
+                          ? `R$ ${(149.90 * quantity).toFixed(2)}` 
+                          : selectedSize === '30cm' 
+                            ? `R$ ${(199.90 * quantity).toFixed(2)}` 
+                            : `R$ ${(299.90 * quantity).toFixed(2)}`}
                       </span>
                     </div>
                     <div className="flex justify-between items-center text-sm text-meumini-light-gray mt-1">
@@ -203,15 +258,23 @@ const CreateMini: React.FC = () => {
                   <Button 
                     onClick={() => setStep(2)} 
                     variant="outline"
+                    className="text-white border-gray-600 hover:bg-gray-700"
                   >
                     Voltar
                   </Button>
-                  <Button 
-                    className="button-gradient"
-                    disabled={!isFormValid}
-                  >
-                    Comprar Agora
-                  </Button>
+                  {isFormValid && (
+                    <a 
+                      href={paymentLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button 
+                        className="button-gradient"
+                      >
+                        Comprar Agora
+                      </Button>
+                    </a>
+                  )}
                 </div>
               </div>
             )}

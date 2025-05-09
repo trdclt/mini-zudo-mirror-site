@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
               onClick={() => scrollToSection('criar')}
               className="button-gradient text-lg px-8 py-6 font-semibold animate-glow"
             >
-              Criar Meu MeuMini <ArrowRight className="ml-2 h-5 w-5" />
+              Criar MeuMini <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
               onClick={() => scrollToSection('galeria')}
