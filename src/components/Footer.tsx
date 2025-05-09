@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
                 WhatsApp: (11) 98791-8168
               </li>
               <li className="text-meumini-light-gray">
-                Horário: Seg-Sex, 9h às 18h
+                Horário: Segunda a domingo, 07h às 20h
               </li>
             </ul>
           </div>

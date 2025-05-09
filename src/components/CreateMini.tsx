@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Toggle } from '@/components/ui/toggle';
-import { Upload, MinusCircle, PlusCircle } from 'lucide-react';
+import { Upload } from 'lucide-react';
 
 const sizes = [
   { value: '20cm', label: '20cm', price: 'R$ 66,90' },
@@ -35,14 +35,6 @@ const CreateMini: React.FC = () => {
     }
   };
 
-  const increaseQuantity = () => {
-    setQuantity(prev => Math.min(prev + 1, 6)); // Max 6 units as requested
-  };
-
-  const decreaseQuantity = () => {
-    setQuantity(prev => Math.max(prev - 1, 1)); // Min 1 unit
-  };
-
   // Calculate discount percentage based on quantity
   const calculateDiscountPercentage = (qty: number) => {
     if (qty === 1) return 0;
@@ -52,6 +44,24 @@ const CreateMini: React.FC = () => {
     if (qty === 5) return 20;
     if (qty >= 6) return 25;
     return 0;
+  };
+
+  // Calculate price for each quantity option
+  const calculatePriceForQuantity = (qty: number) => {
+    if (!selectedSize) return 0;
+    
+    let basePrice = 0;
+    if (selectedSize === '20cm') {
+      basePrice = 66.90;
+    } else if (selectedSize === '30cm') {
+      basePrice = 82.90;
+    } else if (selectedSize === '50cm') {
+      basePrice = 112.99;
+    }
+    
+    const discount = calculateDiscountPercentage(qty);
+    const discountMultiplier = (100 - discount) / 100;
+    return basePrice * qty * discountMultiplier;
   };
 
   useEffect(() => {
@@ -88,7 +98,7 @@ const CreateMini: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gray-800 rounded-xl p-8 card-shadow">
           <h2 className="text-3xl font-bold text-center mb-8">
-            Monte seu <span className="text-meumini-orange">MeuMini</span> em 3 passos
+            MeuMini em 3 Passos
           </h2>
           
           <div className="flex justify-between mb-8">
@@ -137,55 +147,40 @@ const CreateMini: React.FC = () => {
                 {selectedSize && (
                   <div className="mb-8">
                     <h3 className="text-xl font-semibold mb-4">Escolha a quantidade</h3>
-                    <div className="flex items-center justify-center gap-4 py-4">
-                      <Button 
-                        variant="outline" 
-                        size="icon"
-                        onClick={decreaseQuantity}
-                        disabled={quantity <= 1}
-                        className="rounded-full h-10 w-10 flex items-center justify-center border-gray-600"
-                      >
-                        <MinusCircle className="h-5 w-5" />
-                      </Button>
-                      <span className="text-3xl font-bold w-12 text-center">{quantity}</span>
-                      <Button 
-                        variant="outline" 
-                        size="icon"
-                        onClick={increaseQuantity}
-                        disabled={quantity >= 6}
-                        className="rounded-full h-10 w-10 flex items-center justify-center border-gray-600"
-                      >
-                        <PlusCircle className="h-5 w-5" />
-                      </Button>
+                    
+                    {/* Updated quantity selector with visual options and prices */}
+                    <div className="space-y-2 bg-gray-900 p-4 rounded-lg">
+                      {[1, 2, 3, 4, 5, 6].map((qty) => {
+                        const price = calculatePriceForQuantity(qty);
+                        const discount = calculateDiscountPercentage(qty);
+                        
+                        return (
+                          <div 
+                            key={qty}
+                            onClick={() => setQuantity(qty)}
+                            className={`flex justify-between items-center p-3 rounded-lg cursor-pointer transition-all ${
+                              quantity === qty 
+                                ? 'bg-meumini-orange text-white' 
+                                : 'bg-gray-800 hover:bg-gray-700'
+                            }`}
+                          >
+                            <div className="flex items-center">
+                              <span className="text-lg font-medium">{qty} {qty === 1 ? 'unidade' : 'unidades'}</span>
+                              {discount > 0 && (
+                                <span className="ml-2 text-xs bg-white/20 text-white px-2 py-0.5 rounded-full">
+                                  {discount}% OFF
+                                </span>
+                              )}
+                            </div>
+                            <span className="font-bold">
+                              R$ {price.toFixed(2).replace('.', ',')}
+                            </span>
+                          </div>
+                        );
+                      })}
                     </div>
                     
-                    {quantity > 1 && (
-                      <div className="text-center mt-3">
-                        <span className="bg-meumini-orange/20 text-meumini-orange px-3 py-1 rounded-full text-sm font-medium">
-                          Desconto de {discountPercentage}% aplicado!
-                        </span>
-                      </div>
-                    )}
-                    
                     <div className="text-center mt-4 bg-gray-900 p-4 rounded-lg">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-meumini-light-gray">Preço unitário:</span>
-                        <span className="text-white">
-                          {selectedSize === '20cm' ? 'R$ 66,90' : 
-                          selectedSize === '30cm' ? 'R$ 82,90' : 
-                          'R$ 112,99'}
-                        </span>
-                      </div>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-meumini-light-gray">Quantidade:</span>
-                        <span className="text-white">{quantity} un.</span>
-                      </div>
-                      {discountPercentage > 0 && (
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-meumini-light-gray">Desconto:</span>
-                          <span className="text-meumini-orange">{discountPercentage}%</span>
-                        </div>
-                      )}
                       <div className="border-t border-gray-700 my-2 pt-2"></div>
                       <div className="flex justify-between items-center">
                         <span className="text-lg text-white">Total:</span>
@@ -247,7 +242,10 @@ const CreateMini: React.FC = () => {
                             className="hidden"
                           />
                           <Label htmlFor="photo" className="cursor-pointer">
-                            <Button variant="outline" className="text-white border-gray-600 hover:bg-gray-700">
+                            <Button 
+                              variant="default" 
+                              className="bg-meumini-orange hover:bg-meumini-orange/90 text-white"
+                            >
                               Escolher arquivo
                             </Button>
                           </Label>
@@ -275,7 +273,7 @@ const CreateMini: React.FC = () => {
                   <Button 
                     onClick={() => setStep(1)} 
                     variant="outline"
-                    className="text-white border-gray-600 hover:bg-gray-700"
+                    className="text-black bg-white hover:bg-gray-200 border-gray-300"
                   >
                     Voltar
                   </Button>
@@ -331,7 +329,7 @@ const CreateMini: React.FC = () => {
                     </div>
                     <div className="flex justify-between items-center text-sm text-meumini-light-gray mt-1">
                       <span>Tempo de produção</span>
-                      <span>7-15 dias úteis</span>
+                      <span>1-2 dias úteis</span>
                     </div>
                   </div>
                 </div>
@@ -340,7 +338,7 @@ const CreateMini: React.FC = () => {
                   <Button 
                     onClick={() => setStep(2)} 
                     variant="outline"
-                    className="text-white border-gray-600 hover:bg-gray-700"
+                    className="text-black bg-white hover:bg-gray-200 border-gray-300"
                   >
                     Voltar
                   </Button>

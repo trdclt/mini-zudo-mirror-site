@@ -11,6 +11,7 @@ import Gallery from '@/components/Gallery';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
         <CTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 };

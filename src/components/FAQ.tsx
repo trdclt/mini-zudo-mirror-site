@@ -11,7 +11,11 @@ const FAQ: React.FC = () => {
   const faqItems = [
     {
       question: "Quanto tempo leva para produzir meu MeuMini?",
-      answer: "O prazo de produção é de 7 a 15 dias úteis após confirmação do pagamento."
+      answer: "O prazo de produção é de 1 a 2 dias úteis após confirmação do pagamento."
+    },
+    {
+      question: "Qual o horário de atendimento?",
+      answer: "Atendimento: Segunda a domingo, das 07h até 20h."
     },
     {
       question: "Posso personalizar a roupa e acessórios?",
