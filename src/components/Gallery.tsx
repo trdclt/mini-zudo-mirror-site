@@ -4,10 +4,12 @@ import { Button } from '@/components/ui/button';
 import { Instagram } from 'lucide-react';
 
 const galleryImages = [
-  "public/lovable-uploads/a8d070f5-e2b4-4445-b045-7345b171e3d5.png",
-  "public/lovable-uploads/7374d7a3-2a34-4bbb-bbb3-1f632064f366.png",
-  "public/lovable-uploads/f92f01a3-ff72-454b-9d10-7ec136192d7b.png",
-  "public/lovable-uploads/dd89015f-bd58-4444-97a4-1c4f0b60df44.png",
+  "public/lovable-uploads/5c201fea-e693-4dfb-9540-62be38ba5a1d.png",
+  "public/lovable-uploads/d1657d83-b28a-4a03-92f5-37bf2f042ece.png",
+  "public/lovable-uploads/fa3017cc-14e8-498a-9ee6-39818ce95335.png",
+  "public/lovable-uploads/0f27e1ac-1c64-44b9-9f8f-4e5da6aefdf6.png",
+  "public/lovable-uploads/1906d788-a9ca-42db-866d-de56f1d3bd22.png",
+  "public/lovable-uploads/81e6d779-5c7f-424d-9ddd-824b548de2cf.png",
 ];
 
 const Gallery: React.FC = () => {
@@ -22,13 +24,13 @@ const Gallery: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {galleryImages.map((image, index) => (
             <div key={index} className="relative group overflow-hidden rounded-lg">
               <img 
                 src={image} 
                 alt={`Cliente com sua miniatura personalizada ${index + 1}`} 
-                className="w-full aspect-[3/4] object-cover transform transition-transform group-hover:scale-105 duration-300"
+                className="w-full aspect-square object-cover transform transition-transform group-hover:scale-110 duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
                 <div className="p-4">
