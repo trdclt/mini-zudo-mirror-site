@@ -2,12 +2,26 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Instagram } from 'lucide-react';
+import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselPrevious, 
+  CarouselNext 
+} from '@/components/ui/carousel';
 
 const galleryImages = [
   "/lovable-uploads/a8d070f5-e2b4-4445-b045-7345b171e3d5.png",
   "/lovable-uploads/7374d7a3-2a34-4bbb-bbb3-1f632064f366.png",
   "/lovable-uploads/f92f01a3-ff72-454b-9d10-7ec136192d7b.png",
   "/lovable-uploads/dd89015f-bd58-4444-97a4-1c4f0b60df44.png",
+  "/lovable-uploads/92c8b9d5-8caf-4f51-8499-0fcc68e9a23a.png",
+  "/lovable-uploads/f96711ea-7c1a-4378-b0b7-66120086921f.png",
+  "/lovable-uploads/184cf47a-21fd-4254-98cd-9d65e5e645b6.png",
+  "/lovable-uploads/950fa47c-f6d3-4799-8de0-fe9f3d97ffac.png",
+  "/lovable-uploads/273daef4-d40a-4d96-9c22-c5b509a40faa.png",
+  "/lovable-uploads/8b23cc1a-7845-4162-ac18-111a7844ebdb.png",
+  "/lovable-uploads/8fbad4d6-47f1-45a3-bff8-471fce401e03.png"
 ];
 
 const Gallery: React.FC = () => {
@@ -22,22 +36,43 @@ const Gallery: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {galleryImages.map((image, index) => (
-            <div key={index} className="relative group overflow-hidden rounded-lg">
-              <img 
-                src={image} 
-                alt={`Cliente com sua miniatura personalizada ${index + 1}`} 
-                className="w-full aspect-[3/4] object-cover transform transition-transform group-hover:scale-105 duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                <div className="p-4">
-                  <h3 className="text-white font-medium">MeuMini Personalizado</h3>
-                  <p className="text-sm text-gray-300">Cliente satisfeito</p>
-                </div>
-              </div>
+        <div className="relative">
+          <Carousel className="w-full">
+            <CarouselContent className="-ml-4">
+              {galleryImages.map((image, index) => (
+                <CarouselItem 
+                  key={index} 
+                  className="pl-4 md:basis-1/3 lg:basis-1/4"
+                >
+                  <div className="relative group overflow-hidden rounded-lg">
+                    <img 
+                      src={image} 
+                      alt={`Cliente com sua miniatura personalizada ${index + 1}`} 
+                      className="w-full aspect-square object-cover transform transition-transform group-hover:scale-105 duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+                      <div className="p-4">
+                        <h3 className="text-white font-medium">MeuMini Personalizado</h3>
+                        <p className="text-sm text-gray-300">Cliente satisfeito</p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            <div className="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2">
+              <CarouselPrevious className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
             </div>
-          ))}
+            <div className="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2">
+              <CarouselNext className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+            </div>
+          </Carousel>
+          
+          <div className="flex justify-center mt-6 md:hidden">
+            <CarouselPrevious className="static transform-none mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+            <CarouselNext className="static transform-none mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+          </div>
         </div>
         
         <div className="flex flex-col items-center mt-12">
@@ -53,7 +88,7 @@ const Gallery: React.FC = () => {
             Veja mais trabalhos e acompanhe as novidades
           </p>
           <a 
-            href="https://www.instagram.com/meumini.com.br/"
+            href="https://linktr.ee/meumini"
             target="_blank"
             rel="noopener noreferrer"
           >

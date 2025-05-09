@@ -50,7 +50,14 @@ const FeaturedProducts: React.FC = () => {
                   className="w-full aspect-square object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end">
-                  <Button className="button-gradient m-4">Ver Detalhes</Button>
+                  <a 
+                    href="https://linktr.ee/meumini" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="m-4"
+                  >
+                    <Button className="button-gradient">Aproveitar Agora</Button>
+                  </a>
                 </div>
               </div>
               <div className="p-4">

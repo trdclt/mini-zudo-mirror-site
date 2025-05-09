@@ -26,7 +26,7 @@ const CTA: React.FC = () => {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <a 
-            href="https://wa.me/5511987918168?text=Eu%20quero%20MeuMini" 
+            href="https://linktr.ee/meumini" 
             target="_blank"
             rel="noopener noreferrer"
           >
