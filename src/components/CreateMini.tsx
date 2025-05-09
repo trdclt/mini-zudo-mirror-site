@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,6 +12,34 @@ const sizes = [
   { value: '30cm', label: '30cm', price: 'R$ 82,90' },
   { value: '50cm', label: '50cm', price: 'R$ 112,99' },
 ];
+
+// Checkout URLs mapping based on size and quantity
+const checkoutUrls = {
+  '20cm': {
+    1: 'https://checkout.meumini.com/VCCL1O8SBTNJ',
+    2: 'https://checkout.meumini.com/VCCL1O8SBTPG',
+    3: 'https://checkout.meumini.com/VCCL1O8SBTPH',
+    4: 'https://checkout.meumini.com/VCCL1O8SBTPI',
+    5: 'https://checkout.meumini.com/VCCL1O8SBTPJ',
+    6: 'https://checkout.meumini.com/VCCL1O8SBTPK'
+  },
+  '30cm': {
+    1: 'https://checkout.meumini.com/VCCL1O8SBTOW',
+    2: 'https://checkout.meumini.com/VCCL1O8SBTPL',
+    3: 'https://checkout.meumini.com/VCCL1O8SBTPM',
+    4: 'https://checkout.meumini.com/VCCL1O8SBTPN',
+    5: 'https://checkout.meumini.com/VCCL1O8SBTPO',
+    6: 'https://checkout.meumini.com/VCCL1O8SBTPP'
+  },
+  '50cm': {
+    1: 'https://checkout.meumini.com/VCCL1O8SBTP9',
+    2: 'https://checkout.meumini.com/VCCL1O8SBTPQ',
+    3: 'https://checkout.meumini.com/VCCL1O8SBTPR',
+    4: 'https://checkout.meumini.com/VCCL1O8SBTPS',
+    5: 'https://checkout.meumini.com/VCCL1O8SBTPT',
+    6: 'https://checkout.meumini.com/VCCL1O8SBTPU'
+  }
+};
 
 const CreateMini: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -86,9 +115,10 @@ const CreateMini: React.FC = () => {
       
       setTotalPrice(finalPrice);
       
-      // Dynamic WhatsApp link
-      const whatsappUrl = `https://wa.me/5511987918168?text=Eu%20quero%20${quantity}%20MeuMini%20de%20${selectedSize}`;
-      setPaymentLink(whatsappUrl);
+      // Get the appropriate checkout URL based on size and quantity
+      if (selectedSize && checkoutUrls[selectedSize] && checkoutUrls[selectedSize][quantity]) {
+        setPaymentLink(checkoutUrls[selectedSize][quantity]);
+      }
     }
   }, [selectedSize, quantity]);
 
