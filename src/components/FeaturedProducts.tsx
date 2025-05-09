@@ -6,25 +6,25 @@ const products = [
   {
     id: 1,
     name: "Miniatura Pessoal",
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80",
+    image: "/lovable-uploads/b4b1e544-8973-4a46-a87f-4caeb4d94dce.png",
     description: "Sua imagem transformada em uma miniatura detalhada."
   },
   {
     id: 2,
     name: "Miniatura Familiar",
-    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80",
+    image: "/lovable-uploads/002c0e0b-8391-4896-bf7f-ddd48a6b0226.png",
     description: "Eternize momentos em família com uma miniatura personalizada."
   },
   {
     id: 3,
     name: "Miniatura Profissional",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80",
+    image: "/lovable-uploads/e3e0b068-64e8-4392-b37d-a7359ca11b58.png",
     description: "Represente sua carreira ou hobby em uma miniatura exclusiva."
   },
   {
     id: 4,
     name: "Miniatura Comemorativa",
-    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80",
+    image: "/lovable-uploads/e2500cfa-5f3f-4c7c-8fdc-5763e1b4e8a1.png",
     description: "Celebre marcos especiais com uma miniatura personalizada."
   }
 ];

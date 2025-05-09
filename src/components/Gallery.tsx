@@ -4,10 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Instagram } from 'lucide-react';
 
 const galleryImages = [
-  "public/lovable-uploads/a8d070f5-e2b4-4445-b045-7345b171e3d5.png",
-  "public/lovable-uploads/7374d7a3-2a34-4bbb-bbb3-1f632064f366.png",
-  "public/lovable-uploads/f92f01a3-ff72-454b-9d10-7ec136192d7b.png",
-  "public/lovable-uploads/dd89015f-bd58-4444-97a4-1c4f0b60df44.png",
+  "/lovable-uploads/a8d070f5-e2b4-4445-b045-7345b171e3d5.png",
+  "/lovable-uploads/7374d7a3-2a34-4bbb-bbb3-1f632064f366.png",
+  "/lovable-uploads/f92f01a3-ff72-454b-9d10-7ec136192d7b.png",
+  "/lovable-uploads/dd89015f-bd58-4444-97a4-1c4f0b60df44.png",
 ];
 
 const Gallery: React.FC = () => {
