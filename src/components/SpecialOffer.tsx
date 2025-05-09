@@ -71,7 +71,7 @@ const SpecialOffer: React.FC = () => {
             </div>
             
             <a 
-              href="https://wa.me/5511987918168?text=Eu%20quero%20MeuMini"
+              href="https://linktr.ee/meu.mini"
               target="_blank" 
               rel="noopener noreferrer"
             >
