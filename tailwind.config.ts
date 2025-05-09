@@ -30,6 +30,13 @@ export default {
 					dark: '#1d1d1d',
 					light: '#fafbff',
 				},
+				meumini: {
+					dark: '#1e1e1e',
+					orange: '#ff6f00',
+					'orange-glow': '#ffa500',
+					light: '#ffffff',
+					'light-gray': '#cccccc',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -94,12 +101,17 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' },
+				},
+				'glow': {
+					'0%, 100%': { filter: 'brightness(100%)' },
+					'50%': { filter: 'brightness(150%) drop-shadow(0 0 15px rgba(255, 111, 0, 0.5))' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'float': 'float 5s ease-in-out infinite'
+				'float': 'float 5s ease-in-out infinite',
+				'glow': 'glow 3s ease-in-out infinite',
 			}
 		}
 	},

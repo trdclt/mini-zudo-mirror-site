@@ -51,7 +51,7 @@
   }
 
   body {
-    @apply bg-minizudo-light text-minizudo-dark;
+    @apply bg-meumini-dark text-white;
   }
   
   .pulse {
@@ -67,17 +67,28 @@
     }
   }
 
+  .countdown-gradient {
+    background: linear-gradient(90deg, #ff6f00 0%, #ffa500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .button-gradient {
-    background: linear-gradient(90deg, #93fc3c 0%, #4ddb00 100%);
+    background: linear-gradient(90deg, #ff6f00 0%, #ffa500 100%);
     transition: all 0.3s ease;
   }
   
   .button-gradient:hover {
-    background: linear-gradient(90deg, #85e535 0%, #45c500 100%);
+    background: linear-gradient(90deg, #ff7d1a 0%, #ffb52e 100%);
     transform: translateY(-2px);
+    filter: drop-shadow(0 0 8px rgba(255, 111, 0, 0.6));
   }
 
   .card-shadow {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  }
+
+  .neon-glow {
+    filter: drop-shadow(0 0 8px rgba(255, 111, 0, 0.6));
   }
 }

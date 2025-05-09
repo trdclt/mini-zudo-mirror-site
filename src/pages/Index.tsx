@@ -2,9 +2,13 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import HowToPlay from '@/components/HowToPlay';
-import Prizes from '@/components/Prizes';
+import FeaturedProducts from '@/components/FeaturedProducts';
+import AboutBrand from '@/components/AboutBrand';
+import SpecialOffer from '@/components/SpecialOffer';
+import HowItWorks from '@/components/HowItWorks';
+import Catalog from '@/components/Catalog';
+import CreateMini from '@/components/CreateMini';
+import Gallery from '@/components/Gallery';
 import Testimonials from '@/components/Testimonials';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
@@ -15,9 +19,13 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <Features />
-        <HowToPlay />
-        <Prizes />
+        <FeaturedProducts />
+        <AboutBrand />
+        <SpecialOffer />
+        <HowItWorks />
+        <Catalog />
+        <CreateMini />
+        <Gallery />
         <Testimonials />
         <CTA />
       </main>
