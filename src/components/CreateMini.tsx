@@ -16,7 +16,7 @@ const sizes = [
 const CreateMini: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
-  const [image, setImage] = useState<File | null>(null);
+  const [images, setImages] = useState<File[]>([]);
   const [description, setDescription] = useState('');
   const [step, setStep] = useState(1);
   const [paymentLink, setPaymentLink] = useState('');
@@ -24,8 +24,10 @@ const CreateMini: React.FC = () => {
   const [discountPercentage, setDiscountPercentage] = useState(0);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0]);
+    if (e.target.files && e.target.files.length > 0) {
+      // Convert FileList to array
+      const fileArray = Array.from(e.target.files);
+      setImages(fileArray);
     }
   };
 
@@ -91,7 +93,7 @@ const CreateMini: React.FC = () => {
     }
   }, [selectedSize, quantity]);
 
-  const isFormValid = selectedSize && image && description.trim().length > 10;
+  const isFormValid = selectedSize && images.length > 0 && description.trim().length > 10;
 
   return (
     <section className="py-16 bg-gray-900" id="criar">
@@ -210,35 +212,46 @@ const CreateMini: React.FC = () => {
                 
                 <div className="space-y-6">
                   <div>
-                    <Label htmlFor="photo" className="block mb-2 text-white">Envie uma foto de referência</Label>
+                    <Label htmlFor="photo" className="block mb-2 text-white">Envie fotos de referência (você pode enviar mais de 01 foto)</Label>
                     <div className="border-2 border-dashed border-gray-700 rounded-lg p-6 text-center">
-                      {image ? (
+                      {images.length > 0 ? (
                         <div className="flex flex-col items-center">
-                          <img 
-                            src={URL.createObjectURL(image)} 
-                            alt="Preview" 
-                            className="max-h-40 mb-4"
-                          />
-                          <p className="text-sm text-meumini-light-gray">{image.name}</p>
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4 w-full">
+                            {images.map((img, index) => (
+                              <div key={index} className="relative aspect-square">
+                                <img 
+                                  src={URL.createObjectURL(img)}
+                                  alt={`Preview ${index + 1}`}
+                                  className="w-full h-full object-cover rounded-lg"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                          
+                          <p className="text-sm text-meumini-light-gray mt-4">
+                            Estas são as fotos que você enviou para referência.
+                          </p>
+                          
                           <Button 
                             variant="outline" 
-                            className="mt-2 text-white border-gray-600 hover:bg-gray-700" 
-                            onClick={() => setImage(null)}
+                            className="mt-4 text-white border-gray-600 hover:bg-gray-700" 
+                            onClick={() => setImages([])}
                           >
-                            Trocar imagem
+                            Trocar imagens
                           </Button>
                         </div>
                       ) : (
                         <div className="flex flex-col items-center">
                           <Upload className="h-12 w-12 text-gray-500 mb-4" />
                           <p className="text-sm text-meumini-light-gray mb-4">
-                            Arraste sua imagem ou clique para fazer o upload
+                            Arraste suas imagens ou clique para fazer o upload
                           </p>
                           <Input
                             id="photo"
                             type="file"
                             onChange={handleImageChange}
                             accept="image/jpeg, image/png"
+                            multiple
                             className="hidden"
                           />
                           <Label htmlFor="photo" className="cursor-pointer">
@@ -279,7 +292,7 @@ const CreateMini: React.FC = () => {
                   </Button>
                   <Button 
                     className="button-gradient"
-                    disabled={!image || description.trim().length < 10}
+                    disabled={images.length === 0 || description.trim().length < 10}
                     onClick={() => setStep(3)}
                   >
                     Revisar
@@ -297,7 +310,7 @@ const CreateMini: React.FC = () => {
                   <div className="space-y-2 text-meumini-light-gray">
                     <p><span className="font-medium text-white">Tamanho:</span> {selectedSize}</p>
                     <p><span className="font-medium text-white">Quantidade:</span> {quantity} {quantity > 1 ? 'unidades' : 'unidade'}</p>
-                    <p><span className="font-medium text-white">Imagem:</span> {image?.name}</p>
+                    <p><span className="font-medium text-white">Imagens enviadas:</span> {images.length}</p>
                     <p><span className="font-medium text-white">Descrição:</span> {description}</p>
                   </div>
                   
