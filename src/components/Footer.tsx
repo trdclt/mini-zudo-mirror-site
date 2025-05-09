@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from './Logo';
 import { Instagram, MessageSquare, Link } from 'lucide-react';
@@ -34,7 +33,7 @@ const Footer: React.FC = () => {
                 <MessageSquare className="h-6 w-6" />
               </a>
               <a 
-                href="https://linktr.ee/meumini" 
+                href="https://linktr.ee/meu.mini" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-meumini-orange transition-colors"
