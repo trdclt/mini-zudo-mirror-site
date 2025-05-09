@@ -4,12 +4,12 @@ import { Button } from '@/components/ui/button';
 import { Instagram } from 'lucide-react';
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1582562124811-c09040d0a901?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
-  "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
-  "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
-  "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
-  "https://images.unsplash.com/photo-1466721591366-2d5fba72006d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
-  "https://images.unsplash.com/photo-1582562124811-c09040d0a901?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=600&q=80",
+  "public/lovable-uploads/5c201fea-e693-4dfb-9540-62be38ba5a1d.png",
+  "public/lovable-uploads/d1657d83-b28a-4a03-92f5-37bf2f042ece.png",
+  "public/lovable-uploads/fa3017cc-14e8-498a-9ee6-39818ce95335.png",
+  "public/lovable-uploads/0f27e1ac-1c64-44b9-9f8f-4e5da6aefdf6.png",
+  "public/lovable-uploads/1906d788-a9ca-42db-866d-de56f1d3bd22.png",
+  "public/lovable-uploads/81e6d779-5c7f-424d-9ddd-824b548de2cf.png",
 ];
 
 const Gallery: React.FC = () => {
@@ -29,7 +29,7 @@ const Gallery: React.FC = () => {
             <div key={index} className="relative group overflow-hidden rounded-lg">
               <img 
                 src={image} 
-                alt={`Miniatura ${index + 1}`} 
+                alt={`Cliente com sua miniatura personalizada ${index + 1}`} 
                 className="w-full aspect-square object-cover transform transition-transform group-hover:scale-110 duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
