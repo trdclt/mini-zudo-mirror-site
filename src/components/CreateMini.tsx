@@ -92,8 +92,6 @@ const CreateMini: React.FC = () => {
     }
   }, [selectedSize, quantity]);
 
-  const isFormValid = selectedSize && images.length > 0 && description.trim().length > 10;
-
   return (
     <section className="py-16 bg-gray-900" id="criar">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -292,7 +290,6 @@ const CreateMini: React.FC = () => {
                   </Button>
                   <Button 
                     className="button-gradient"
-                    disabled={images.length === 0 || description.trim().length < 10}
                     onClick={() => setStep(3)}
                   >
                     Revisar
@@ -304,6 +301,12 @@ const CreateMini: React.FC = () => {
             {step === 3 && (
               <div className="step-content">
                 <h3 className="text-xl font-semibold mb-6">Finalize seu pedido</h3>
+                
+                {(!images.length || description.trim().length < 10) && (
+                  <div className="mb-6 p-4 bg-amber-500/20 border border-amber-500 rounded-lg">
+                    <p className="text-amber-200">Lembre-se de preencher todos os campos antes de finalizar o pedido!</p>
+                  </div>
+                )}
                 
                 <div className="bg-gray-900 rounded-lg p-6 mb-6">
                   <h4 className="font-semibold mb-4">Resumo do pedido</h4>
@@ -355,19 +358,17 @@ const CreateMini: React.FC = () => {
                   >
                     Voltar
                   </Button>
-                  {isFormValid && (
-                    <a 
-                      href={paymentLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  <a 
+                    href={paymentLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button 
+                      className="button-gradient"
                     >
-                      <Button 
-                        className="button-gradient"
-                      >
-                        Comprar Agora
-                      </Button>
-                    </a>
-                  )}
+                      Comprar Agora
+                    </Button>
+                  </a>
                 </div>
               </div>
             )}
