@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import FeaturedProducts from '@/components/FeaturedProducts';
@@ -14,6 +14,11 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
+  useEffect(() => {
+    // Scroll to top when the component mounts (page loads/refreshes)
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Navbar />
