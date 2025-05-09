@@ -40,8 +40,8 @@ const Gallery: React.FC = () => {
           </p>
         </div>
         
-        {/* Updated container with proper responsive width constraints */}
-        <div className="relative w-full max-w-[900px] mx-auto px-4 sm:px-8 md:px-12">
+        {/* Further reduced width for a more compact carousel */}
+        <div className="relative w-full max-w-[750px] mx-auto px-4 sm:px-6 md:px-8">
           <Carousel className="w-full">
             <CarouselContent className="-ml-4">
               {galleryImages.map((image, index) => (
@@ -66,11 +66,11 @@ const Gallery: React.FC = () => {
               ))}
             </CarouselContent>
             
-            {/* Improved navigation buttons for better visibility on all screen sizes */}
-            <div className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 hidden md:block">
+            {/* Improved position of navigation buttons */}
+            <div className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 hidden md:block">
               <CarouselPrevious className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
             </div>
-            <div className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 hidden md:block">
+            <div className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 hidden md:block">
               <CarouselNext className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
             </div>
 
