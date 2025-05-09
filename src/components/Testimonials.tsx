@@ -66,6 +66,7 @@ const Testimonials: React.FC = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
+          
           <div className="flex justify-center gap-2 mt-4">
             <CarouselPrevious className="static transform-none mx-4" />
             <CarouselNext className="static transform-none mx-4" />

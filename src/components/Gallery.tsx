@@ -61,18 +61,18 @@ const Gallery: React.FC = () => {
               ))}
             </CarouselContent>
             
-            <div className="hidden md:flex absolute -left-12 top-1/2 -translate-y-1/2">
-              <CarouselPrevious className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+            <div className="hidden md:block">
+              <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
             </div>
-            <div className="hidden md:flex absolute -right-12 top-1/2 -translate-y-1/2">
-              <CarouselNext className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+            <div className="hidden md:block">
+              <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+            </div>
+
+            <div className="flex justify-center mt-6 md:hidden">
+              <CarouselPrevious className="mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
+              <CarouselNext className="mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
             </div>
           </Carousel>
-          
-          <div className="flex justify-center mt-6 md:hidden">
-            <CarouselPrevious className="static transform-none mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
-            <CarouselNext className="static transform-none mx-2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
-          </div>
         </div>
         
         <div className="flex flex-col items-center mt-12">
