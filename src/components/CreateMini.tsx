@@ -211,7 +211,7 @@ const CreateMini: React.FC = () => {
                 
                 <div className="space-y-6">
                   <div>
-                    <Label htmlFor="photo" className="block mb-2 text-white">
+                    <Label htmlFor="file-upload" className="block mb-2 text-white">
                       Envie fotos de referência (você pode enviar mais de 01 foto)
                     </Label>
                     <div className="border-2 border-dashed border-gray-700 rounded-lg p-6 text-center">
@@ -233,13 +233,12 @@ const CreateMini: React.FC = () => {
                             Estas são as fotos que você enviou para referência.
                           </p>
                           
-                          <Button 
-                            variant="outline" 
-                            className="mt-4 text-white border-gray-600 hover:bg-gray-700" 
-                            onClick={() => setImages([])}
+                          <label 
+                            htmlFor="file-upload" 
+                            className="mt-4 cursor-pointer inline-flex items-center justify-center px-4 py-2 rounded-md bg-meumini-orange hover:bg-meumini-orange/90 text-white transition-all hover:shadow-[0_0_10px_rgba(255,111,0,0.6)]"
                           >
                             Trocar imagens
-                          </Button>
+                          </label>
                         </div>
                       ) : (
                         <div className="flex flex-col items-center">
@@ -248,24 +247,23 @@ const CreateMini: React.FC = () => {
                             Arraste suas imagens ou clique para fazer o upload
                           </p>
                           
-                          <Label htmlFor="photo" className="cursor-pointer">
-                            <Button 
-                              variant="default" 
-                              className="bg-meumini-orange hover:bg-meumini-orange/90 text-white"
-                            >
-                              Escolher arquivo
-                            </Button>
-                          </Label>
-                          <Input
-                            id="photo"
-                            type="file"
-                            onChange={handleImageChange}
-                            accept="image/jpeg, image/png"
-                            multiple
-                            className="sr-only"
-                          />
+                          <label 
+                            htmlFor="file-upload" 
+                            className="cursor-pointer inline-flex items-center justify-center px-4 py-2 rounded-md bg-meumini-orange hover:bg-meumini-orange/90 text-white transition-all hover:shadow-[0_0_10px_rgba(255,111,0,0.6)]"
+                          >
+                            Escolher arquivo
+                          </label>
                         </div>
                       )}
+                      
+                      <input
+                        id="file-upload"
+                        type="file"
+                        onChange={handleImageChange}
+                        accept="image/jpeg, image/png"
+                        multiple
+                        className="hidden"
+                      />
                     </div>
                   </div>
                   
