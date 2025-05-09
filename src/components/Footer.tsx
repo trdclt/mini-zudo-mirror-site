@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Logo from './Logo';
-import { Instagram, MessageSquare, Link } from 'lucide-react';
+import { Instagram, WhatsApp, Link } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 className="text-gray-400 hover:text-meumini-orange transition-colors"
               >
                 <span className="sr-only">WhatsApp</span>
-                <MessageSquare className="h-6 w-6" />
+                <WhatsApp className="h-6 w-6" />
               </a>
               <a 
                 href="https://linktr.ee/meumini" 
@@ -79,9 +79,6 @@ const Footer: React.FC = () => {
         <div className="mt-8 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between">
           <p className="text-meumini-light-gray text-sm">
             &copy; 2021 MeuMini. Todos os direitos reservados.
-          </p>
-          <p className="text-meumini-light-gray text-sm mt-2 md:mt-0">
-            Mais de 5000 clientes satisfeitos • Envio para todo o Brasil
           </p>
         </div>
       </div>

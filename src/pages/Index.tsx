@@ -32,6 +32,13 @@ const Index = () => {
         <Gallery />
         <FAQ />
         <CTA />
+        <div className="py-8 bg-meumini-dark text-center">
+          <p className="text-xl font-bold text-white">
+            <span className="bg-gradient-to-r from-meumini-orange to-meumini-orange-glow bg-clip-text text-transparent">
+              Mais de 5000 clientes satisfeitos • Envio para todo o Brasil
+            </span>
+          </p>
+        </div>
       </main>
       <Footer />
       <WhatsAppButton />

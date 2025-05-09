@@ -26,7 +26,14 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToSection('home')} className="text-white hover:text-meumini-orange transition-colors">INÍCIO</button>
             <button onClick={() => scrollToSection('como-funciona')} className="text-white hover:text-meumini-orange transition-colors">COMO FUNCIONA</button>
             <button onClick={() => scrollToSection('galeria')} className="text-white hover:text-meumini-orange transition-colors">GALERIA</button>
-            <button onClick={() => scrollToSection('contato')} className="text-white hover:text-meumini-orange transition-colors">CONTATO</button>
+            <a 
+              href="https://wa.me/5511987918168?text=Eu%20quero%20MeuMini"
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white hover:text-meumini-orange transition-colors"
+            >
+              WHATSAPP
+            </a>
             <button onClick={() => scrollToSection('depoimentos')} className="text-white hover:text-meumini-orange transition-colors">DEPOIMENTOS</button>
             <Button 
               onClick={() => scrollToSection('criar')} 
@@ -53,7 +60,14 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">INÍCIO</button>
             <button onClick={() => scrollToSection('como-funciona')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">COMO FUNCIONA</button>
             <button onClick={() => scrollToSection('galeria')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">GALERIA</button>
-            <button onClick={() => scrollToSection('contato')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">CONTATO</button>
+            <a 
+              href="https://wa.me/5511987918168?text=Eu%20quero%20MeuMini" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange"
+            >
+              WHATSAPP
+            </a>
             <button onClick={() => scrollToSection('depoimentos')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">DEPOIMENTOS</button>
             <div className="px-3 py-2">
               <Button 

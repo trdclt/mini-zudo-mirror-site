@@ -6,8 +6,8 @@ import { Timer } from 'lucide-react';
 const SpecialOffer: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 1,
-    minutes: 19,
-    seconds: 45
+    minutes: 38,
+    seconds: 0
   });
 
   useEffect(() => {
