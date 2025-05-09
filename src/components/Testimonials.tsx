@@ -34,12 +34,12 @@ const Testimonials: React.FC = () => {
     <section className="py-16 bg-gray-900" id="depoimentos">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold">O que dizem nossos clientes</h2>
+          <h2 className="text-3xl font-bold mb-6">O que dizem nossos clientes</h2>
           <p className="mt-4 text-lg text-meumini-light-gray">Histórias reais de pessoas que transformaram suas memórias em arte</p>
         </div>
         
-        {/* Added max-width container for better control */}
-        <div className="max-w-[900px] mx-auto">
+        {/* Improved container with better width control and padding for mobile */}
+        <div className="w-full max-w-[900px] mx-auto px-4 sm:px-8 md:px-12 relative">
           <Carousel>
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
@@ -69,8 +69,15 @@ const Testimonials: React.FC = () => {
               ))}
             </CarouselContent>
             
-            {/* Improved navigation buttons for consistent styling */}
-            <div className="flex justify-center gap-2 mt-4">
+            {/* Improved navigation buttons for consistent positioning on all screens */}
+            <div className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 hidden md:block">
+              <CarouselPrevious className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
+            </div>
+            <div className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 hidden md:block">
+              <CarouselNext className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
+            </div>
+            
+            <div className="flex justify-center gap-2 mt-4 md:hidden">
               <CarouselPrevious className="static transform-none mx-4 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
               <CarouselNext className="static transform-none mx-4 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none" />
             </div>

@@ -40,8 +40,8 @@ const Gallery: React.FC = () => {
           </p>
         </div>
         
-        {/* Added container div with max-width for better control */}
-        <div className="relative max-w-[900px] mx-auto">
+        {/* Updated container with proper responsive width constraints */}
+        <div className="relative w-full max-w-[900px] mx-auto px-4 sm:px-8 md:px-12">
           <Carousel className="w-full">
             <CarouselContent className="-ml-4">
               {galleryImages.map((image, index) => (
@@ -66,12 +66,12 @@ const Gallery: React.FC = () => {
               ))}
             </CarouselContent>
             
-            {/* Improved navigation buttons for better visibility */}
-            <div className="hidden md:block">
-              <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
+            {/* Improved navigation buttons for better visibility on all screen sizes */}
+            <div className="absolute -left-2 top-1/2 -translate-y-1/2 z-10 hidden md:block">
+              <CarouselPrevious className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
             </div>
-            <div className="hidden md:block">
-              <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2 bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
+            <div className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 hidden md:block">
+              <CarouselNext className="bg-meumini-orange hover:bg-meumini-orange-glow text-white border-none h-10 w-10" />
             </div>
 
             <div className="flex justify-center mt-6 md:hidden">
