@@ -88,7 +88,7 @@ const Gallery: React.FC = () => {
             Veja mais trabalhos e acompanhe as novidades
           </p>
           <a 
-            href="https://linktr.ee/meumini"
+            href="https://linktr.ee/meu.mini"
             target="_blank"
             rel="noopener noreferrer"
           >

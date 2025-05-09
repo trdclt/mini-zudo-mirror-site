@@ -36,7 +36,7 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-meumini-dark" id="depoimentos">
+    <section className="py-16 bg-meumini-dark" id="faq">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Perguntas Frequentes</h2>
@@ -65,7 +65,7 @@ const FAQ: React.FC = () => {
             Ainda tem dúvidas? Entre em contato conosco!
           </p>
           <a 
-            href="https://wa.me/5511987918168?text=Eu%20tenho%20uma%20dúvida%20sobre%20o%20MeuMini" 
+            href="https://linktr.ee/meu.mini" 
             target="_blank" 
             rel="noopener noreferrer"
             className="button-gradient inline-block px-8 py-3 rounded-md font-medium text-white hover:scale-105 transition-transform"

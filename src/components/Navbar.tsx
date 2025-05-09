@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
             >
               WHATSAPP
             </a>
-            <button onClick={() => scrollToSection('depoimentos')} className="text-white hover:text-meumini-orange transition-colors">DEPOIMENTOS</button>
+            <button onClick={() => scrollToSection('faq')} className="text-white hover:text-meumini-orange transition-colors">FAQ</button>
             <Button 
               onClick={() => scrollToSection('criar')} 
               className="button-gradient font-medium animate-glow"
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
             >
               WHATSAPP
             </a>
-            <button onClick={() => scrollToSection('depoimentos')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">DEPOIMENTOS</button>
+            <button onClick={() => scrollToSection('faq')} className="block w-full text-left px-3 py-2 text-base font-medium text-white hover:text-meumini-orange">FAQ</button>
             <div className="px-3 py-2">
               <Button 
                 onClick={() => scrollToSection('criar')}
