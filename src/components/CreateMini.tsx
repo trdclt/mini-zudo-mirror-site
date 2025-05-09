@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -212,7 +211,9 @@ const CreateMini: React.FC = () => {
                 
                 <div className="space-y-6">
                   <div>
-                    <Label htmlFor="photo" className="block mb-2 text-white">Envie fotos de referência (você pode enviar mais de 01 foto)</Label>
+                    <Label htmlFor="photo" className="block mb-2 text-white">
+                      Envie fotos de referência (você pode enviar mais de 01 foto)
+                    </Label>
                     <div className="border-2 border-dashed border-gray-700 rounded-lg p-6 text-center">
                       {images.length > 0 ? (
                         <div className="flex flex-col items-center">
@@ -246,14 +247,7 @@ const CreateMini: React.FC = () => {
                           <p className="text-sm text-meumini-light-gray mb-4">
                             Arraste suas imagens ou clique para fazer o upload
                           </p>
-                          <Input
-                            id="photo"
-                            type="file"
-                            onChange={handleImageChange}
-                            accept="image/jpeg, image/png"
-                            multiple
-                            className="hidden"
-                          />
+                          
                           <Label htmlFor="photo" className="cursor-pointer">
                             <Button 
                               variant="default" 
@@ -262,6 +256,14 @@ const CreateMini: React.FC = () => {
                               Escolher arquivo
                             </Button>
                           </Label>
+                          <Input
+                            id="photo"
+                            type="file"
+                            onChange={handleImageChange}
+                            accept="image/jpeg, image/png"
+                            multiple
+                            className="sr-only"
+                          />
                         </div>
                       )}
                     </div>
