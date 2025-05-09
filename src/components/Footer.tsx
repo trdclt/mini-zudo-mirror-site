@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Logo from './Logo';
-import { Instagram, WhatsApp, Link } from 'lucide-react';
+import { Instagram, MessageSquare, Link } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 className="text-gray-400 hover:text-meumini-orange transition-colors"
               >
                 <span className="sr-only">WhatsApp</span>
-                <WhatsApp className="h-6 w-6" />
+                <MessageSquare className="h-6 w-6" />
               </a>
               <a 
                 href="https://linktr.ee/meumini" 
