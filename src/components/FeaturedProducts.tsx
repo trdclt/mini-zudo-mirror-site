@@ -6,25 +6,25 @@ const products = [
   {
     id: 1,
     name: "Miniatura Pessoal",
-    image: "https://placehold.co/600x400/1e1e1e/ff6f00?text=Miniatura+Pessoal",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80",
     description: "Sua imagem transformada em uma miniatura detalhada."
   },
   {
     id: 2,
     name: "Miniatura Familiar",
-    image: "https://placehold.co/600x400/1e1e1e/ff6f00?text=Miniatura+Familiar",
+    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80",
     description: "Eternize momentos em família com uma miniatura personalizada."
   },
   {
     id: 3,
     name: "Miniatura Profissional",
-    image: "https://placehold.co/600x400/1e1e1e/ff6f00?text=Miniatura+Profissional",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80",
     description: "Represente sua carreira ou hobby em uma miniatura exclusiva."
   },
   {
     id: 4,
     name: "Miniatura Comemorativa",
-    image: "https://placehold.co/600x400/1e1e1e/ff6f00?text=Miniatura+Comemorativa",
+    image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=600&q=80",
     description: "Celebre marcos especiais com uma miniatura personalizada."
   }
 ];
@@ -47,7 +47,7 @@ const FeaturedProducts: React.FC = () => {
                 <img 
                   src={product.image} 
                   alt={product.name} 
-                  className="w-full h-48 object-cover"
+                  className="w-full aspect-square object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end">
                   <Button className="button-gradient m-4">Ver Detalhes</Button>

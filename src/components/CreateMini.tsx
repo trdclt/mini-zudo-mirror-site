@@ -8,9 +8,9 @@ import { Toggle } from '@/components/ui/toggle';
 import { Upload, MinusCircle, PlusCircle } from 'lucide-react';
 
 const sizes = [
-  { value: '20cm', label: '20cm', price: 'R$ 149,90' },
-  { value: '30cm', label: '30cm', price: 'R$ 199,90' },
-  { value: '50cm', label: '50cm', price: 'R$ 299,90' },
+  { value: '20cm', label: '20cm', price: 'R$ 66,90' },
+  { value: '30cm', label: '30cm', price: 'R$ 82,90' },
+  { value: '50cm', label: '50cm', price: 'R$ 112,99' },
 ];
 
 const CreateMini: React.FC = () => {
@@ -20,6 +20,8 @@ const CreateMini: React.FC = () => {
   const [description, setDescription] = useState('');
   const [step, setStep] = useState(1);
   const [paymentLink, setPaymentLink] = useState('');
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [discountPercentage, setDiscountPercentage] = useState(0);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -34,21 +36,48 @@ const CreateMini: React.FC = () => {
   };
 
   const increaseQuantity = () => {
-    setQuantity(prev => Math.min(prev + 1, 10)); // Max 10 units
+    setQuantity(prev => Math.min(prev + 1, 6)); // Max 6 units as requested
   };
 
   const decreaseQuantity = () => {
     setQuantity(prev => Math.max(prev - 1, 1)); // Min 1 unit
   };
 
+  // Calculate discount percentage based on quantity
+  const calculateDiscountPercentage = (qty: number) => {
+    if (qty === 1) return 0;
+    if (qty === 2) return 5;
+    if (qty === 3) return 10;
+    if (qty === 4) return 15;
+    if (qty === 5) return 20;
+    if (qty >= 6) return 25;
+    return 0;
+  };
+
   useEffect(() => {
-    // Generate dynamic payment link based on selection
+    // Calculate price based on size and quantity with progressive discount
     if (selectedSize && quantity > 0) {
-      // This would typically connect to your payment processor
-      // For now we'll just create a mock URL with the parameters
-      const baseUrl = 'https://www.instagram.com/meumini.com.br/';
-      const sizeParam = selectedSize.replace('cm', '');
-      setPaymentLink(`${baseUrl}?size=${sizeParam}&qty=${quantity}`);
+      let basePrice = 0;
+      
+      if (selectedSize === '20cm') {
+        basePrice = 66.90;
+      } else if (selectedSize === '30cm') {
+        basePrice = 82.90;
+      } else if (selectedSize === '50cm') {
+        basePrice = 112.99;
+      }
+      
+      const discount = calculateDiscountPercentage(quantity);
+      setDiscountPercentage(discount);
+      
+      const discountMultiplier = (100 - discount) / 100;
+      const finalPrice = basePrice * quantity * discountMultiplier;
+      
+      setTotalPrice(finalPrice);
+      
+      // Dynamic WhatsApp link
+      const whatsappUrl = `https://wa.me/5511987918168?text=Eu%20quero%20${quantity}%20MeuMini%20de%20${selectedSize}`;
+      setPaymentLink(whatsappUrl);
     }
   }, [selectedSize, quantity]);
 
@@ -123,11 +152,47 @@ const CreateMini: React.FC = () => {
                         variant="outline" 
                         size="icon"
                         onClick={increaseQuantity}
-                        disabled={quantity >= 10}
+                        disabled={quantity >= 6}
                         className="rounded-full h-10 w-10 flex items-center justify-center border-gray-600"
                       >
                         <PlusCircle className="h-5 w-5" />
                       </Button>
+                    </div>
+                    
+                    {quantity > 1 && (
+                      <div className="text-center mt-3">
+                        <span className="bg-meumini-orange/20 text-meumini-orange px-3 py-1 rounded-full text-sm font-medium">
+                          Desconto de {discountPercentage}% aplicado!
+                        </span>
+                      </div>
+                    )}
+                    
+                    <div className="text-center mt-4 bg-gray-900 p-4 rounded-lg">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-meumini-light-gray">Preço unitário:</span>
+                        <span className="text-white">
+                          {selectedSize === '20cm' ? 'R$ 66,90' : 
+                          selectedSize === '30cm' ? 'R$ 82,90' : 
+                          'R$ 112,99'}
+                        </span>
+                      </div>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-meumini-light-gray">Quantidade:</span>
+                        <span className="text-white">{quantity} un.</span>
+                      </div>
+                      {discountPercentage > 0 && (
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-meumini-light-gray">Desconto:</span>
+                          <span className="text-meumini-orange">{discountPercentage}%</span>
+                        </div>
+                      )}
+                      <div className="border-t border-gray-700 my-2 pt-2"></div>
+                      <div className="flex justify-between items-center">
+                        <span className="text-lg text-white">Total:</span>
+                        <span className="text-xl font-bold text-meumini-orange">
+                          R$ {totalPrice.toFixed(2).replace('.', ',')}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -162,7 +227,7 @@ const CreateMini: React.FC = () => {
                           <p className="text-sm text-meumini-light-gray">{image.name}</p>
                           <Button 
                             variant="outline" 
-                            className="mt-2 text-white" 
+                            className="mt-2 text-white border-gray-600 hover:bg-gray-700" 
                             onClick={() => setImage(null)}
                           >
                             Trocar imagem
@@ -182,7 +247,9 @@ const CreateMini: React.FC = () => {
                             className="hidden"
                           />
                           <Label htmlFor="photo" className="cursor-pointer">
-                            <Button variant="outline" className="text-white">Escolher arquivo</Button>
+                            <Button variant="outline" className="text-white border-gray-600 hover:bg-gray-700">
+                              Escolher arquivo
+                            </Button>
                           </Label>
                         </div>
                       )}
@@ -194,7 +261,7 @@ const CreateMini: React.FC = () => {
                     <Textarea
                       id="description"
                       placeholder="Descreva como você gostaria que sua miniatura fosse. Inclua detalhes importantes como cores, posição, elementos adicionais, etc."
-                      className="h-32"
+                      className="h-32 bg-gray-700 text-white border-gray-600 focus:border-meumini-orange"
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                     />
@@ -237,19 +304,34 @@ const CreateMini: React.FC = () => {
                   </div>
                   
                   <div className="border-t border-gray-700 mt-4 pt-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-meumini-light-gray">Preço unitário:</span>
+                      <span className="text-white">
+                        {selectedSize === '20cm' ? 'R$ 66,90' : 
+                        selectedSize === '30cm' ? 'R$ 82,90' : 
+                        'R$ 112,99'}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-meumini-light-gray">Quantidade:</span>
+                      <span className="text-white">{quantity} un.</span>
+                    </div>
+                    {discountPercentage > 0 && (
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-meumini-light-gray">Desconto:</span>
+                        <span className="text-meumini-orange">{discountPercentage}%</span>
+                      </div>
+                    )}
+                    <div className="border-t border-gray-700 my-2 pt-2"></div>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg">Preço</span>
+                      <span className="text-lg">Total</span>
                       <span className="text-xl font-bold text-meumini-orange">
-                        {selectedSize === '20cm' 
-                          ? `R$ ${(149.90 * quantity).toFixed(2)}` 
-                          : selectedSize === '30cm' 
-                            ? `R$ ${(199.90 * quantity).toFixed(2)}` 
-                            : `R$ ${(299.90 * quantity).toFixed(2)}`}
+                        R$ {totalPrice.toFixed(2).replace('.', ',')}
                       </span>
                     </div>
                     <div className="flex justify-between items-center text-sm text-meumini-light-gray mt-1">
                       <span>Tempo de produção</span>
-                      <span>15-20 dias úteis</span>
+                      <span>7-15 dias úteis</span>
                     </div>
                   </div>
                 </div>

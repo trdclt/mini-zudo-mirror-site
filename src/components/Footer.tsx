@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from './Logo';
 import { Instagram, MessageSquare, Link } from 'lucide-react';
@@ -24,7 +25,7 @@ const Footer: React.FC = () => {
                 <Instagram className="h-6 w-6" />
               </a>
               <a 
-                href="https://wa.me/5511999999999" 
+                href="https://wa.me/5511987918168" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-meumini-orange transition-colors"
@@ -66,7 +67,7 @@ const Footer: React.FC = () => {
                 Email: contato@meumini.com.br
               </li>
               <li className="text-meumini-light-gray">
-                WhatsApp: (11) 99999-9999
+                WhatsApp: (11) 98791-8168
               </li>
               <li className="text-meumini-light-gray">
                 Horário: Seg-Sex, 9h às 18h

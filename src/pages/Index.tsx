@@ -8,7 +8,7 @@ import SpecialOffer from '@/components/SpecialOffer';
 import HowItWorks from '@/components/HowItWorks';
 import CreateMini from '@/components/CreateMini';
 import Gallery from '@/components/Gallery';
-import Testimonials from '@/components/Testimonials';
+import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 
@@ -24,7 +24,7 @@ const Index = () => {
         <HowItWorks />
         <CreateMini />
         <Gallery />
-        <Testimonials />
+        <FAQ />
         <CTA />
       </main>
       <Footer />

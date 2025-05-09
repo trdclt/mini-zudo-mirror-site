@@ -12,36 +12,37 @@ const CTA: React.FC = () => {
   };
 
   return (
-    <section id="criar" className="py-20 bg-meumini-dark text-white relative overflow-hidden">
-      <div className="absolute -top-24 -right-24 w-64 h-64 bg-meumini-orange opacity-20 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-meumini-orange opacity-10 rounded-full blur-3xl"></div>
+    <section className="py-16 bg-gradient-to-b from-gray-900 to-meumini-dark relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://placehold.co/1920x1080/1e1e1e/333333?text=')] opacity-10"></div>
+      <div className="absolute -top-16 -right-16 w-64 h-64 bg-meumini-orange opacity-10 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-meumini-orange opacity-10 rounded-full blur-3xl"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Pronto para criar o seu <span className="text-meumini-orange">MeuMini?</span>
-          </h2>
-          <p className="text-lg md:text-xl text-meumini-light-gray max-w-3xl mx-auto mb-8">
-            Eternize suas histórias mais especiais com uma miniatura única e personalizada.
-            É fácil, rápido e o resultado vai te surpreender!
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Pronto para ter seu próprio <span className="text-meumini-orange animate-glow">MeuMini</span>?
+        </h2>
+        <p className="text-lg text-meumini-light-gray max-w-2xl mx-auto mb-10">
+          Transforme suas memórias em arte. Crie uma miniatura personalizada única que conta sua história.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <a 
+            href="https://wa.me/5511987918168?text=Eu%20quero%20MeuMini" 
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Button 
-              onClick={() => {
-                window.open('https://www.instagram.com/meumini.com.br/', '_blank');
-              }}
               className="button-gradient text-lg px-8 py-6 font-semibold animate-glow"
             >
-              COMEÇAR AGORA <ArrowRight className="ml-2 h-5 w-5" />
+              Começar Agora <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button 
-              onClick={() => scrollToSection('galeria')}
-              variant="outline" 
-              className="text-lg px-8 py-6 font-semibold border-2 border-meumini-orange text-meumini-orange hover:bg-meumini-orange hover:text-white"
-            >
-              Ver Galeria
-            </Button>
-          </div>
+          </a>
+          <Button 
+            onClick={() => scrollToSection('galeria')} 
+            variant="outline"
+            className="border-2 border-meumini-orange text-meumini-orange hover:bg-meumini-orange hover:text-white text-lg px-8 py-6 font-semibold"
+          >
+            Ver Galeria
+          </Button>
         </div>
       </div>
     </section>

@@ -70,9 +70,15 @@ const SpecialOffer: React.FC = () => {
               </div>
             </div>
             
-            <Button className="button-gradient text-lg px-8 py-6 font-semibold animate-glow">
-              Aproveitar Agora
-            </Button>
+            <a 
+              href="https://wa.me/5511987918168?text=Eu%20quero%20MeuMini"
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Button className="button-gradient text-lg px-8 py-6 font-semibold animate-glow">
+                Aproveitar Agora
+              </Button>
+            </a>
           </div>
         </div>
       </div>
