@@ -210,7 +210,7 @@ const CreateMini: React.FC = () => {
                 <div className="space-y-6">
                   <div>
                     <Label htmlFor="file-upload" className="block mb-2 text-white">
-                      Envie fotos de referência (você pode enviar mais de 01 foto)
+                      Envie suas fotos de referência (você pode selecionar várias imagens de uma só vez)
                     </Label>
                     <div className="border-2 border-dashed border-gray-700 rounded-lg p-6 text-center">
                       {images.length > 0 ? (
