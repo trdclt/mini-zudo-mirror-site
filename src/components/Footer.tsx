@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Logo from './Logo';
 import { Instagram, MessageSquare, Link } from 'lucide-react';
@@ -79,6 +80,12 @@ const Footer: React.FC = () => {
           <p className="text-meumini-light-gray text-sm">
             &copy; 2021 MeuMini. Todos os direitos reservados.
           </p>
+          
+          {/* Informações para verificação do Meta Ads */}
+          <div className="text-meumini-light-gray text-xs mt-2 md:mt-0 opacity-70">
+            <p>CNPJ: 55784784000188</p>
+            <p>MEU MINI MERCADO LTDA</p>
+          </div>
         </div>
       </div>
     </footer>
