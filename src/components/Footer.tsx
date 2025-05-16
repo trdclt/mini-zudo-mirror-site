@@ -67,9 +67,6 @@ const Footer: React.FC = () => {
                 Email: contato@meumini.com.br
               </li>
               <li className="text-meumini-light-gray">
-                WhatsApp: (11) 98791-8168
-              </li>
-              <li className="text-meumini-light-gray">
                 Horário: Segunda a domingo, 07h às 20h
               </li>
             </ul>
