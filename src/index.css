@@ -52,7 +52,7 @@
   }
 
   body {
-    @apply bg-gradient-to-b from-orange-50 to-amber-100 text-gray-800;
+    @apply bg-meumini-dark text-white;
   }
   
   .pulse {

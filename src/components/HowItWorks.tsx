@@ -22,11 +22,11 @@ const steps = [
 
 const HowItWorks: React.FC = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-amber-500 to-orange-600" id="como-funciona">
+    <section className="py-16 bg-gray-900" id="como-funciona">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-white">Como Funciona</h2>
-          <p className="text-lg text-amber-100 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">Como Funciona</h2>
+          <p className="text-lg text-meumini-light-gray max-w-3xl mx-auto">
             Transformar suas memórias em uma miniatura personalizada é fácil e rápido.
             Siga estes simples passos para criar seu MeuMini exclusivo.
           </p>
@@ -39,17 +39,17 @@ const HowItWorks: React.FC = () => {
               className="relative"
             >
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-24 left-1/2 w-full h-1 bg-gradient-to-r from-amber-300 to-transparent" />
+                <div className="hidden md:block absolute top-24 left-1/2 w-full h-1 bg-gradient-to-r from-meumini-orange to-transparent" />
               )}
-              <div className="bg-amber-600/80 rounded-lg p-6 card-shadow relative z-10">
-                <div className="w-16 h-16 bg-amber-300 rounded-full flex items-center justify-center mx-auto mb-6 neon-glow">
-                  <step.icon className="h-8 w-8 text-orange-800" />
+              <div className="bg-gray-800 rounded-lg p-6 card-shadow relative z-10">
+                <div className="w-16 h-16 bg-meumini-orange rounded-full flex items-center justify-center mx-auto mb-6 neon-glow">
+                  <step.icon className="h-8 w-8 text-white" />
                 </div>
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-meumini-orange rounded-full flex items-center justify-center text-white font-bold">
                   {index + 1}
                 </div>
-                <h3 className="text-xl font-bold text-center mb-4 text-white">{step.title}</h3>
-                <p className="text-center text-amber-100">{step.description}</p>
+                <h3 className="text-xl font-bold text-center mb-4">{step.title}</h3>
+                <p className="text-center text-meumini-light-gray">{step.description}</p>
               </div>
             </div>
           ))}

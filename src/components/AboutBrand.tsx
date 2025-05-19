@@ -22,11 +22,11 @@ const features = [
 
 const AboutBrand: React.FC = () => {
   return (
-    <section className="py-16 bg-gradient-to-b from-orange-600 to-orange-800" id="sobre">
+    <section className="py-16 bg-gray-900" id="sobre">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-white">Histórias reais em miniaturas únicas</h2>
-          <p className="text-lg text-orange-100 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">Histórias reais em miniaturas únicas</h2>
+          <p className="text-lg text-meumini-light-gray max-w-3xl mx-auto">
             Na MeuMini, transformamos suas fotos e memórias em miniaturas artesanais detalhadas que contam sua história. 
             Nosso processo combina arte tradicional com personalização digital para criar peças únicas que durarão para sempre.
           </p>
@@ -36,16 +36,16 @@ const AboutBrand: React.FC = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="bg-orange-700/80 rounded-lg p-6 card-shadow hover:transform hover:translate-y-[-10px] transition-all duration-300"
+              className="bg-gray-800 rounded-lg p-6 card-shadow hover:transform hover:translate-y-[-10px] transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-amber-400 rounded-full flex items-center justify-center mx-auto mb-6 neon-glow">
-                <feature.icon className="h-8 w-8 text-orange-900" />
+              <div className="w-16 h-16 bg-meumini-orange rounded-full flex items-center justify-center mx-auto mb-6 neon-glow">
+                <feature.icon className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-center mb-4 text-white">{feature.title} {
+              <h3 className="text-xl font-bold text-center mb-4">{feature.title} {
                 feature.title === "Artesanal" ? "🛠️" :
                 feature.title === "Personalizado" ? "🖌️" : "🌟"
               }</h3>
-              <p className="text-center text-orange-100">{feature.description}</p>
+              <p className="text-center text-meumini-light-gray">{feature.description}</p>
             </div>
           ))}
         </div>

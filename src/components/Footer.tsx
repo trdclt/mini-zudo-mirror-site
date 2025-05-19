@@ -5,7 +5,7 @@ import { Instagram, MessageSquare, Link } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gradient-to-b from-orange-900 to-orange-950 border-t border-orange-800" id="contato">
+    <footer className="bg-gray-900 border-t border-gray-800" id="contato">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        <div className="mt-8 border-t border-orange-800 pt-8 flex flex-col md:flex-row justify-between">
+        <div className="mt-8 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between">
           <p className="text-meumini-light-gray text-sm">
             &copy; 2021 MeuMini. Todos os direitos reservados.
           </p>
