@@ -17,13 +17,13 @@ const catalogTypes = [
 
 const Catalog: React.FC = () => {
   return (
-    <section className="py-16 bg-meumini-dark" id="catalogo">
+    <section className="py-16 bg-gradient-to-b from-orange-200 to-amber-300" id="catalogo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="text-3xl font-bold mb-6 text-orange-900">
             Escolha o MeuMini perfeito para você
           </h2>
-          <p className="text-lg text-meumini-light-gray max-w-3xl mx-auto">
+          <p className="text-lg text-orange-800 max-w-3xl mx-auto">
             Oferecemos opções para todos os gostos e necessidades. Explore nossos modelos prontos
             ou crie uma miniatura totalmente personalizada.
           </p>
@@ -33,7 +33,7 @@ const Catalog: React.FC = () => {
           {catalogTypes.map((type, index) => (
             <div 
               key={index} 
-              className="bg-gray-800 rounded-lg overflow-hidden card-shadow"
+              className="bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden card-shadow"
             >
               <div className="h-48 overflow-hidden">
                 <img 
@@ -43,9 +43,9 @@ const Catalog: React.FC = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-4">{type.title}</h3>
-                <p className="text-meumini-light-gray mb-6">{type.description}</p>
-                <Button className={index === 1 ? "button-gradient" : "bg-gray-700 hover:bg-gray-600"}>
+                <h3 className="text-xl font-bold mb-4 text-orange-900">{type.title}</h3>
+                <p className="text-orange-800 mb-6">{type.description}</p>
+                <Button className={index === 1 ? "button-gradient" : "bg-orange-700 hover:bg-orange-600"}>
                   Ver {type.title}
                 </Button>
               </div>

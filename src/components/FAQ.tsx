@@ -36,24 +36,24 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-meumini-dark" id="faq">
+    <section className="py-16 bg-gradient-to-b from-amber-100 to-orange-200" id="faq">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Perguntas Frequentes</h2>
-          <p className="text-meumini-light-gray">Tire suas dúvidas sobre o MeuMini</p>
+          <h2 className="text-3xl font-bold mb-4 text-orange-900">Perguntas Frequentes</h2>
+          <p className="text-orange-800">Tire suas dúvidas sobre o MeuMini</p>
         </div>
         
-        <Accordion type="single" collapsible className="bg-gray-800 rounded-xl overflow-hidden">
+        <Accordion type="single" collapsible className="bg-white/80 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg">
           {faqItems.map((item, index) => (
             <AccordionItem 
               key={index} 
               value={`item-${index}`}
-              className="border-b border-gray-700 last:border-0"
+              className="border-b border-orange-200 last:border-0"
             >
-              <AccordionTrigger className="px-6 py-4 text-white hover:text-meumini-orange hover:no-underline">
+              <AccordionTrigger className="px-6 py-4 text-orange-900 hover:text-meumini-orange hover:no-underline">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="px-6 py-4 text-meumini-light-gray">
+              <AccordionContent className="px-6 py-4 text-orange-800">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>
@@ -61,7 +61,7 @@ const FAQ: React.FC = () => {
         </Accordion>
         
         <div className="mt-10 text-center">
-          <p className="text-meumini-light-gray mb-6">
+          <p className="text-orange-800 mb-6">
             Ainda tem dúvidas? Entre em contato conosco!
           </p>
           <a 
